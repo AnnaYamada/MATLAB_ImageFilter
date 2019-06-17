@@ -1,9 +1,9 @@
-
+ï»¿
 function test_cxk_readpic();
 video = "test_cxk.mp4";
 vidObj = VideoReader(video);
 
-%¶ÁÈ¡×ÜÖ¡Êı
+%è¯»å–æ€»å¸§æ•°
 a=2;
 nFrames = vidObj.NumberOfFrames;
 vFrameRate = vidObj.FrameRate;
@@ -23,8 +23,8 @@ for i = 1 : nFrames
     image(frame);
     colormap(gray);
     t2=clock;
-    %pause(1/(vFrameRate)-(t2(6)-t1(6)));%µ÷½ÚÑÓÊ±
-    pause(0.0015);%µ÷½ÚÑÓÊ±
+    %pause(1/(vFrameRate)-(t2(6)-t1(6)));%è°ƒèŠ‚å»¶æ—¶
+    pause(0.0015);%è°ƒèŠ‚å»¶æ—¶
 end
 
 close;

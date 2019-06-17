@@ -1,32 +1,32 @@
-clc;clear;close all;
+ï»¿clc;clear;close all;
 video = "test_cxk.mp4";
 vidObj = VideoReader(video);
-%¶ÁÈ¡×ÜÖ¡Êı
+%è¯»å–æ€»å¸§æ•°
 a=2;
 nFrames = vidObj.NumberOfFrames;
 vFrameRate = vidObj.FrameRate;
 fs=44100;
 [audio_input, fs] = audioread(video);
-fprintf('¿ªÊ¼ÌáÈ¡²¢×ª»»Ö¡\n');
+fprintf('å¼€å§‹æå–å¹¶è½¬æ¢å¸§\n');
 for i = 1 : nFrames
-     frame = read(vidObj,i);%¶ÁÈ¡Ä³Ö¡
+     frame = read(vidObj,i);%è¯»å–æŸå¸§
      %imwrite(frame,fullfile('cxk\',[num2str(i) '.jpg']));
      frame=rgb2gray(frame);
      % imshow(frame);
-     thresh = graythresh(frame);     %×Ô¶¯È·¶¨¶şÖµ»¯ãĞÖµ
-     frame = imbinarize(frame,0.6);       %¶ÔÍ¼Ïñ¶şÖµ»¯
+     thresh = graythresh(frame);     %è‡ªåŠ¨ç¡®å®šäºŒå€¼åŒ–é˜ˆå€¼
+     frame = imbinarize(frame,0.6);       %å¯¹å›¾åƒäºŒå€¼åŒ–
      
      w = fspecial('gaussian',[3,3],2);
      frame = imfilter(frame,w,'replicate');
 
-     frame=medfilt2(frame,[5 5]); %ÖĞÖµÂË²¨
+     frame=medfilt2(frame,[5 5]); %ä¸­å€¼æ»¤æ³¢
 
      imwrite(frame,fullfile('cxk2\',[num2str(i) '.jpg']));%i
-     fprintf('ÕıÔÚ×ª»»µÚ%dÖ¡...\n',i);
+     fprintf('æ­£åœ¨è½¬æ¢ç¬¬%då¸§...\n',i);
 end
-fprintf('ÌáÈ¡Íê±Ï\n');
-fprintf('¿ªÊ¼ ¼¦ÄãÌ«ÃÀ ...\n');
+fprintf('æå–å®Œæ¯•\n');
+fprintf('å¼€å§‹ é¸¡ä½ å¤ªç¾ ...\n');
 test_cxk_readpic2();
-fprintf('²¥·ÅÍê±Ï\n');
+fprintf('æ’­æ”¾å®Œæ¯•\n');
 
 %clear sound
