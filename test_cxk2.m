@@ -17,7 +17,7 @@ for i = 1 : nFrames
      frame = imbinarize(frame,0.6);       %对图像二值化
      
      w = fspecial('gaussian',[3,3],2);
-	 frame = imfilter(frame,w,'replicate');
+     frame = imfilter(frame,w,'replicate');
 
      frame=medfilt2(frame,[5 5]); %中值滤波
 
