@@ -24,7 +24,8 @@ for i = 1 : nFrames
     colormap(gray);
     t2=clock;
     %pause(1/(vFrameRate)-(t2(6)-t1(6)));%调节延时
-    pause(0.0015);%调节延时
+    pause(1/(vFrameRate)-1.01*(t2(6)-t1(6)));%调节延时
+    %pause(0.0015);%调节延时
 end
 
 close;
